@@ -59,8 +59,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          name: ${{ steps.tag.outputs.tag }}
-          tag_name: ${{ steps.tag.outputs.tag }}
+          # name: ${{ steps.tag.outputs.tag }}
+          name: ${{ github.ref }}
+          # tag_name: ${{ steps.tag.outputs.tag }}
+          tag_name: ${{ github.ref }}
           prerelease: false
           generate_release_notes: true
           files: |
