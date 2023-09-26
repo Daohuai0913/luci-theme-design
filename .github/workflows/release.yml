@@ -74,12 +74,12 @@ jobs:
 
           echo "status=success" >> $GITHUB_OUTPUT
 
-      - name: Get tag
-        id: tag
-        uses: dawidd6/action-get-tag@v1
-        with:
-        # Optionally strip `v` prefix
-          strip_v: false
+      # - name: Get tag
+      #   id: tag
+      #   uses: dawidd6/action-get-tag@v1
+      #   with:
+      #   # Optionally strip `v` prefix
+      #     strip_v: false
 
       - name: Upload to release
         uses: softprops/action-gh-release@v1
@@ -87,8 +87,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          name: ${{ steps.tag.outputs.tag }}
-          tag_name: ${{ steps.tag.outputs.tag }}
+          # name: ${{ steps.tag.outputs.tag }}
+          name: theme
+          # tag_name: ${{ steps.tag.outputs.tag }}
+          tag_name: v1
           generate_release_notes: true
           files: |
-            ${{ steps.build.outputs.JSON_RESPONSE }}
+            # ${{ steps.build.outputs.JSON_RESPONSE }}
+            200
