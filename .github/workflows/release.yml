@@ -82,7 +82,7 @@ jobs:
       #     strip_v: false
 
       - name: Upload to release
-        uses: softprops/action-gh-release@v1
+        # uses: softprops/action-gh-release@v1
         if: steps.build.outputs.status == 'success' && !cancelled()
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
